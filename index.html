@@ -157,6 +157,10 @@ body.facmode .fac{display:block}
 .col.kbox.own{background:color-mix(in srgb,var(--teal) 16%,var(--surface))}
 .col.kbox .sub{min-height:90px}
 @media (max-width:700px){ .col.kbox .sub{min-height:0} }
+.opts{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:6px}
+.opts li{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;font-weight:700;margin:0}
+.opts li b{flex:none;width:24px;height:24px;border-radius:50%;background:var(--navy);color:var(--surface);display:grid;place-items:center;font-size:12px}
+.opts li span{font-weight:400;font-size:12px;color:var(--muted)}
 .fwd{font-size:12px;color:var(--muted);margin:-4px 0 8px}
 .bridge{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:0 0 14px}
 .bridge>div{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px;min-width:0}
@@ -614,9 +618,9 @@ body.livesync:not(.facmode) #clearBtn{display:none}
       <p class="muted" style="margin:10px 0 0;font-size:13px"><b>Üç savunma hattı</b> (bankacılıkta yaygın çerçeve; vakada geçmez): <b>1. hat</b> işi kuran ve işleten birim · <b>2. hat</b> risk gözetimi · <b>3. hat</b> bağımsız denetim.</p>
     </div>
     <div class="pano" data-pano="p3c" style="margin-top:6px">
-      <div class="pano-head"><h4>Karar Kanvası · üç grupta aynı</h4><span class="hint">Her kutuya 2–3 kısa not: karttan bir bilgi ve kendi görüşünüz.</span><div class="tools"><button class="btn add" type="button">+ Not</button><button class="btn copy" type="button">Kopyala</button></div></div>
+      <div class="pano-head"><h4>Karar Kanvası · üç grupta aynı</h4><span class="hint">Önce 1. kutudaki A · B · C yollarından birini seçin. Her kutuya 2–3 kısa not: karttan bir bilgi ve kendi görüşünüz.</span><div class="tools"><button class="btn add" type="button">+ Not</button><button class="btn copy" type="button">Kopyala</button></div></div>
       <div class="cols" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-        <div class="col kbox"><h5>1 · Yolu seçin</h5><div class="sub">A, B ya da C: birini seçin. Yanıtı eğitimli bir danışman yerine müşteri okuduğunda riskte ne değişir?</div><div class="bak">Bak: madde 1, 2 ve 5 · Tur 2 kartınızdaki 1. not</div><div class="notes" data-key="t3-yol" data-min="2" data-ph="Yolumuz A / B / C · riskte değişen…"></div></div>
+        <div class="col kbox"><h5>1 · Yolu seçin</h5><div class="sub" style="min-height:0">Üç yoldan birini seçin:</div><ul class="opts"><li><b>A</b>Müşteriye şimdi aç</li><li><b>B</b>Önce sesli ara adım<span>danışman–müşteri görüşmesinde sesli GenAI</span></li><li><b>C</b>Henüz değil<span>şimdilik danışmanda kalsın</span></li></ul><div class="sub" style="min-height:0">Yanıtı eğitimli bir danışman yerine müşteri okuduğunda riskte ne değişir?</div><div class="bak">Bak: madde 1, 2 ve 5 · Tur 2 kartınızdaki 1. not</div><div class="notes" data-key="t3-yol" data-min="2" data-ph="Yolumuz: A / B / C · riskte değişen…"></div></div>
         <div class="col kbox"><h5>2 · Üç hazırlık ölçütü</h5><div class="sub">Müşteriye açılmadan önce doğru olması gereken ÜÇ şeyi yazın; her biri ölçülebilir olsun. Her ölçüte bir sahip verin: 1. hat, 2. hat ya da 3. hat. Biri kendi merceğinizden, diğerleri öteki iki mercekten gelebilir.</div><div class="bak">Bak: madde 2, 3 ve 4 ("%50 → %90 tam sağlam" bir ölçüt türüdür) · Tur 2 kartınızdaki 2. ve 3. not</div><div class="notes" data-key="t3-olcut" data-min="3" data-ph="Ölçüt + eşik · sahibi: … hat"></div></div>
         <div class="col kbox own"><h5>3 · Garanti BBVA'ya köprü</h5><div class="sub">Aynı soruyu Garanti BBVA'da müşteriye dönük bir GenAI asistanı için sorun. Üç ölçütünüzden hangisini burada karşılamak en zor olur, neden?</div><div class="bak">Vakada yok: kendi biriminizden yazın. KVKK ve BDDK'yı düşünün: kişisel veri, açıklanabilirlik, denetim izi. Kişi ve müşteri adı yazmayın.</div><div class="notes" data-key="t3-kopru" data-min="2" data-ph="En zor ölçüt …, çünkü…"></div></div>
       </div>
@@ -656,7 +660,7 @@ body.livesync:not(.facmode) #clearBtn{display:none}
     <div class="pano d4box" data-pano="p4d" style="margin-top:0;margin-bottom:14px">
       <div class="pano-head"><h4><span class="d4pill">4D · ortak D</span>Devret satırı</h4><span class="hint">Üç kısa not. Arka arkaya okuyunca 30 saniyelik açılış cümleniz olur.</span><div class="tools"><button class="btn add" type="button">+ Not</button><button class="btn copy" type="button">Kopyala</button></div></div>
       <div class="cols">
-        <div class="col"><h5>Coach'a devredilen</h5><div class="sub">Müşteri için hangi işi Coach yapar?</div><div class="bak">Bak: Tur 3 kartı madde 4 ve 1. kutudaki yolunuz</div><div class="notes" data-key="d4t4a" data-min="1" data-ph="Coach şunu yapar…"></div></div>
+        <div class="col"><h5>Coach'a devredilen</h5><div class="sub">Müşteri için hangi işi Coach yapar?</div><div class="bak">Bak: Tur 3 kartı madde 5 ve 1. kutudaki yolunuz</div><div class="notes" data-key="d4t4a" data-min="1" data-ph="Coach şunu yapar…"></div></div>
         <div class="col"><h5>Danışmanda kalan</h5><div class="sub">Neyi danışman doğrular ve üstlenir?</div><div class="bak">Bak: Tur 2, "Uzmandan istenen" notunuz</div><div class="notes" data-key="d4t4b" data-min="1" data-ph="Danışmanda kalan…"></div></div>
         <div class="col"><h5>Karar kimde</h5><div class="sub">Hangi karar müşteride, hangisi danışmanda, hangisi bankada?</div><div class="bak">Bak: Tur 3, 2. kutudaki ölçütler ve sahipleri</div><div class="notes" data-key="d4t4c" data-min="1" data-ph="Karar…"></div></div>
       </div>
@@ -2060,7 +2064,7 @@ değildir.</p>
      Örnek: 'https://caselab-xxxx-default-rtdb.europe-west1.firebasedatabase.app'
      Boş bırakılırsa pano eskisi gibi çalışır: notlar yalnızca o tarayıcıda kalır.
      ============================================================ */
-  var SYNC_URL='';
+  var SYNC_URL='https://kesfet-caselab-default-rtdb.europe-west1.firebasedatabase.app';
 
   var KEY='kesfet-caselab-v5';
   var store={};
